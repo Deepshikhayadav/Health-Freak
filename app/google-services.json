@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "804335635453",
+    "firebase_url": "https://fire-c5780.firebaseio.com",
+    "project_id": "fire-c5780",
+    "storage_bucket": "fire-c5780.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804335635453:android:9855600a78b3037067e794",
+        "android_client_info": {
+          "package_name": "com.deepshikhayadav.amargeetacollege"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804335635453-8bkv4oapoaed8edqqllqm04mcmrt9jqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvFJG5g3FXYO3nPr42tPq7lfeljmb70DY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804335635453-8bkv4oapoaed8edqqllqm04mcmrt9jqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804335635453:android:7ee87c3735ab821867e794",
+        "android_client_info": {
+          "package_name": "com.deepshikhayadav.geetacollege"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804335635453-8bkv4oapoaed8edqqllqm04mcmrt9jqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvFJG5g3FXYO3nPr42tPq7lfeljmb70DY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804335635453-8bkv4oapoaed8edqqllqm04mcmrt9jqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804335635453:android:a82fed2130e7cf1767e794",
+        "android_client_info": {
+          "package_name": "com.deepshikhayadav.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804335635453-8bkv4oapoaed8edqqllqm04mcmrt9jqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvFJG5g3FXYO3nPr42tPq7lfeljmb70DY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804335635453-8bkv4oapoaed8edqqllqm04mcmrt9jqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804335635453:android:cfdc4b93928642fd67e794",
+        "android_client_info": {
+          "package_name": "com.example.fire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804335635453-8bkv4oapoaed8edqqllqm04mcmrt9jqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvFJG5g3FXYO3nPr42tPq7lfeljmb70DY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804335635453-8bkv4oapoaed8edqqllqm04mcmrt9jqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

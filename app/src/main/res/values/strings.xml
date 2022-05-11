@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GeetaCollege</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="yoga">Yoga</string>
+    <string name="blog">Blog</string>
+    <string name="pedo">Pedometer</string>
+    <string name="glass_of_water">Glass of water</string>
+</resources>
