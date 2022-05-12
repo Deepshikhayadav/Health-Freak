@@ -21,10 +21,19 @@
         android:id="@+id/navigation_blog"
         android:name="com.deepshikhayadav.geetacollege.ui.blogs.BlogsFragment"
         android:label="@string/blog"
-        tools:layout="@layout/fragment_blogs" />
+        tools:layout="@layout/fragment_blogs" >
+        <action
+            android:id="@+id/action_navigation_blog_to_blogAddFragment"
+            app:destination="@id/blogAddFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_pedometer"
         android:name="com.deepshikhayadav.geetacollege.ui.pedometer.PedometerFragment"
         android:label="@string/pedo"
         tools:layout="@layout/fragment_pedometer" />
+    <fragment
+        android:id="@+id/blogAddFragment"
+        android:name="com.deepshikhayadav.geetacollege.ui.blogs.BlogAddFragment"
+        android:label="Add Blog"
+        tools:layout="@layout/fragment_blog_add" />
 </navigation>
