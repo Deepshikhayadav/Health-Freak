@@ -1,14 +1,17 @@
 package com.deepshikhayadav.geetacollege.ui.blogs
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.RecyclerView
 import com.deepshikhayadav.geetacollege.adapter.BlogAdapter
 import com.deepshikhayadav.geetacollege.databinding.FragmentBlogsBinding
 import com.deepshikhayadav.geetacollege.local_db.BlogDatabase
@@ -28,31 +31,40 @@ class BlogsFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var recyclerView : RecyclerView
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        /*val notificationsViewModel =
+       /* viewModel =
             ViewModelProvider(this).get(BlogsViewModel::class.java)*/
 
         _binding = FragmentBlogsBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        Log.i("view","$root")
 
+        recyclerView = binding.blogRecycler
+        progressBar = binding.progressBar
      /*   val textView: TextView = binding.textNotifications
         notificationsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }*/
-        binding.fabAdd.setOnClickListener {
+        /*binding.fabAdd.setOnClickListener {
 
-        }
+        }*/
         setupViewModel()
         observeViewModel()
+
+
         return root
     }
+
+
     private fun setupViewModel() {
-      //  showProgress()
+        showProgress()
 
         viewModel = ViewModelProvider(
             this, MainViewModelFactory(
@@ -69,7 +81,7 @@ class BlogsFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.myResponse.observe(requireActivity(), Observer {
             showMovies(it.data)
-           // hideProgress()
+            hideProgress()
         })
 
         viewModel.errorResponse.observe(requireActivity(), Observer {
@@ -79,10 +91,10 @@ class BlogsFragment : Fragment() {
     }
 
     private fun showMovies(movies: List<BLog>) {
-        binding.blogRecycler.visibility = View.VISIBLE
-        binding.blogRecycler.setHasFixedSize(true)
-        binding.blogRecycler.itemAnimator = DefaultItemAnimator()
-        binding.blogRecycler.adapter = BlogAdapter(movies)
+        recyclerView.visibility = View.VISIBLE
+        recyclerView.setHasFixedSize(true)
+        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.adapter = BlogAdapter(movies)
     }
 
     private fun showErrorMessage(errorMessage: String?) {
@@ -91,7 +103,7 @@ class BlogsFragment : Fragment() {
     }
 
     private fun hideProgress() {
-        //progressBar.visibility = View.GONE
+        progressBar.visibility = View.GONE
     }
 
     private fun showProgress() {
