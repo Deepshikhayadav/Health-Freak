@@ -22,9 +22,9 @@
         android:name="com.deepshikhayadav.geetacollege.ui.blogs.BlogsFragment"
         android:label="@string/blog"
         tools:layout="@layout/fragment_blogs" >
-      <!--  <action
+        <action
             android:id="@+id/action_navigation_blog_to_blogAddFragment"
-            app:destination="@id/blogAddFragment" />-->
+            app:destination="@id/blogAddFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_pedometer"
@@ -35,5 +35,15 @@
         android:id="@+id/blogAddFragment"
         android:name="com.deepshikhayadav.geetacollege.ui.blogs.BlogAddFragment"
         android:label="Add Blog"
-        tools:layout="@layout/fragment_blog_add" />
+        tools:layout="@layout/fragment_blog_add" >
+        <!--<argument
+            android:name="title"
+            app:argType="string" />-->
+      <!--  <argument
+            android:name="item_id"
+            app:argType="integer" />-->
+        <action
+            android:id="@+id/action_blogAddFragment_to_navigation_blog"
+            app:destination="@id/navigation_blog" />
+    </fragment>
 </navigation>

@@ -9,8 +9,10 @@ import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
+import com.deepshikhayadav.geetacollege.R
 import com.deepshikhayadav.geetacollege.adapter.BlogAdapter
 import com.deepshikhayadav.geetacollege.databinding.FragmentBlogsBinding
 import com.deepshikhayadav.geetacollege.local_db.MyDatabase
@@ -43,17 +45,16 @@ class BlogsFragment : Fragment() {
 
         _binding = FragmentBlogsBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        Log.i("view","$root")
 
         recyclerView = binding.blogRecycler
         progressBar = binding.progressBar
 
-        /*binding.fabAdd.setOnClickListener {
-
-        }*/
         setupViewModel()
         observeViewModel()
-
+        binding.fabAdd.setOnClickListener {
+            val action = BlogsFragmentDirections.actionNavigationBlogToBlogAddFragment(/*getString(R.string.add)*/)
+            this.findNavController().navigate(action)
+        }
 
         return root
     }
