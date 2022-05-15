@@ -15,6 +15,6 @@ data class BLog (
     @SerializedName("desc")
     val desc: String,
 
-    @SerializedName("auhor")
+    @SerializedName("author")
     val author: String,
 )

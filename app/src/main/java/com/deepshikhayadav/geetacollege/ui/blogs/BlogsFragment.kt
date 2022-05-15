@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
 import com.deepshikhayadav.geetacollege.adapter.BlogAdapter
 import com.deepshikhayadav.geetacollege.databinding.FragmentBlogsBinding
-import com.deepshikhayadav.geetacollege.local_db.BlogDatabase
+import com.deepshikhayadav.geetacollege.local_db.MyDatabase
 import com.deepshikhayadav.geetacollege.local_db.entity.BLog
 import com.deepshikhayadav.geetacollege.retrofit.RetrofitBuilder
 import com.deepshikhayadav.geetacollege.retrofit.remote.BlogRepositoryimpl
@@ -48,10 +47,7 @@ class BlogsFragment : Fragment() {
 
         recyclerView = binding.blogRecycler
         progressBar = binding.progressBar
-     /*   val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }*/
+
         /*binding.fabAdd.setOnClickListener {
 
         }*/
@@ -70,7 +66,7 @@ class BlogsFragment : Fragment() {
             this, MainViewModelFactory(
                 NetworkHelper(requireContext()),
                 BlogRepositoryimpl(
-                    BlogDatabase.getInstance(requireContext()).movieDao(),
+                    MyDatabase.getInstance(requireContext()).myDao(),
                     RetrofitBuilder.buildService()
                 )
             )
