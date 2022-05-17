@@ -77,7 +77,7 @@ class BlogsFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.myResponse.observe(requireActivity(), Observer {
-            showMovies(it.data)
+            showBlog(it.data)
             hideProgress()
         })
 
@@ -87,7 +87,7 @@ class BlogsFragment : Fragment() {
         })
     }
 
-    private fun showMovies(movies: List<BLog>) {
+    private fun showBlog(movies: List<BLog>) {
         recyclerView.visibility = View.VISIBLE
         recyclerView.setHasFixedSize(true)
         recyclerView.itemAnimator = DefaultItemAnimator()

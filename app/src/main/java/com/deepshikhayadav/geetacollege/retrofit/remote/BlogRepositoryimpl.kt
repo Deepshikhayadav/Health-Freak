@@ -1,12 +1,17 @@
 package com.deepshikhayadav.geetacollege.retrofit.remote
 
+import android.util.Log
 import com.deepshikhayadav.geetacollege.local_db.dao.MyDao
+import com.deepshikhayadav.geetacollege.local_db.entity.BlogPostResponse
 import com.deepshikhayadav.geetacollege.local_db.entity.BlogResponse
 import com.deepshikhayadav.geetacollege.local_db.entity.YogaResponse
 import com.deepshikhayadav.geetacollege.retrofit.MyService
+import okhttp3.MediaType
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
 
 class BlogRepositoryimpl (
     private val myDao: MyDao,
@@ -65,5 +70,44 @@ class BlogRepositoryimpl (
             onSuccess(myDao.getYogas())
         }.start()
     }
+
+    override fun uploadBlog(
+        head1: String,
+        desc1: String,
+        author1: String,
+        file1: File,
+        onSuccess: (BlogPostResponse) -> Unit,
+        onError: (String) -> Unit
+    ) {
+
+        val img =
+            RequestBody.create(MediaType.parse( "image/png"), file1)
+        val head: RequestBody = RequestBody.create(MediaType.parse("text/plain"), head1)
+        val desc: RequestBody = RequestBody.create(MediaType.parse("text/plain"), desc1)
+        val author: RequestBody = RequestBody.create(MediaType.parse("text/plain"), author1)
+        val response = myService.uploadBlog(head = head, img, desc = desc, author = author)
+
+        response.enqueue(object : Callback<BlogPostResponse>{
+            override fun onResponse(
+                call: Call<BlogPostResponse>,
+                response: Response<BlogPostResponse>
+            ) {
+                if (response.isSuccessful && response.body() != null) {
+                    Thread {
+                        onSuccess(response.body()!!)
+                    }.start()
+                } else {
+                    onError(response.message())
+                }
+            }
+
+            override fun onFailure(call: Call<BlogPostResponse>, t: Throwable) {
+
+                onError(t.localizedMessage ?: "Something went wrong")
+            }
+
+        })
+    }
+
 
 }
