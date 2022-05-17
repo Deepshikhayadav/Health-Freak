@@ -63,7 +63,7 @@ class BlogAddFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == pickImage) {
             val imageUri = data?.data
-          file = File(imageUri!!.getPath())
+          file = File(imageUri!!.path)
            // Toast.makeText(activity, file.absolutePath.toString(),Toast.LENGTH_SHORT).show()
             ivImg.setImageURI(imageUri)
         }
