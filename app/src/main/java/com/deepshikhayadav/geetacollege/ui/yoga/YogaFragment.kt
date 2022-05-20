@@ -2,13 +2,16 @@ package com.deepshikhayadav.geetacollege.ui.yoga
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
 import com.deepshikhayadav.geetacollege.R
@@ -72,10 +75,26 @@ class YogaFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.myResponse.observe(requireActivity(), Observer {
-            showYoga(it.data)
+
+        val adapter = YogaAdapter {
+            val action =
+                YogaFragmentDirections.actionNavigationYogaToYogaDetailsFragment2(it)
+            this.findNavController().navigate(action)
+
+        }
+        recyclerView.visibility = View.VISIBLE
+        recyclerView.setHasFixedSize(true)
+        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.adapter = /*YogaAdapter(items.data)*/ adapter
+
+        viewModel.myResponse.observe(requireActivity(), Observer { items->
+            items.let {
+              Log.i("data","${it.data[0]} ")
+               adapter.submitList(it.data)
+            }
             hideProgress()
         })
+
 
         viewModel.errorResponse.observe(requireActivity(), Observer {
             showErrorMessage(it)
@@ -83,12 +102,6 @@ class YogaFragment : Fragment() {
         })
     }
 
-    private fun showYoga(yoga: List<Yoga>) {
-        recyclerView.visibility = View.VISIBLE
-        recyclerView.setHasFixedSize(true)
-        recyclerView.itemAnimator = DefaultItemAnimator()
-        recyclerView.adapter = YogaAdapter(yoga)
-    }
 
     private fun showErrorMessage(errorMessage: String?) {
         errorView.visibility = View.VISIBLE

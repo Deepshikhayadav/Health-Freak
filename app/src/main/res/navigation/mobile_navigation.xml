@@ -15,7 +15,12 @@
         android:id="@+id/navigation_yoga"
         android:name="com.deepshikhayadav.geetacollege.ui.yoga.YogaFragment"
         android:label="@string/yoga"
-        tools:layout="@layout/fragment_pedometer" />
+        tools:layout="@layout/yoga_fragment" >
+
+        <action
+            android:id="@+id/action_navigation_yoga_to_yogaDetailsFragment2"
+            app:destination="@id/yogaDetailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_blog"
@@ -25,6 +30,9 @@
         <action
             android:id="@+id/action_navigation_blog_to_blogAddFragment"
             app:destination="@id/blogAddFragment" />
+        <action
+            android:id="@+id/action_navigation_blog_to_blogDetailsFragment"
+            app:destination="@id/blogDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_pedometer"
@@ -45,5 +53,25 @@
         <action
             android:id="@+id/action_blogAddFragment_to_navigation_blog"
             app:destination="@id/navigation_blog" />
+    </fragment>
+    <fragment
+        android:id="@+id/yogaDetailsFragment"
+        android:name="com.deepshikhayadav.geetacollege.ui.yoga.YogaDetailsFragment"
+        android:label="fragment_yoga_details"
+        tools:layout="@layout/fragment_yoga_details" >
+        <argument
+            android:name="yoga"
+            app:argType="com.deepshikhayadav.geetacollege.local_db.entity.Yoga"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/blogDetailsFragment"
+        android:name="com.deepshikhayadav.geetacollege.ui.blogs.BlogDetailsFragment"
+        android:label="fragment_blog_details"
+        tools:layout="@layout/fragment_blog_details" >
+        <argument
+            android:name="blog"
+            app:argType="com.deepshikhayadav.geetacollege.local_db.entity.BLog"
+            app:nullable="true" />
     </fragment>
 </navigation>
