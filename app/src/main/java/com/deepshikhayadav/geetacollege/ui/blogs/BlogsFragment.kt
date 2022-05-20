@@ -14,11 +14,13 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
 import com.deepshikhayadav.geetacollege.R
 import com.deepshikhayadav.geetacollege.adapter.BlogAdapter
+import com.deepshikhayadav.geetacollege.adapter.YogaAdapter
 import com.deepshikhayadav.geetacollege.databinding.FragmentBlogsBinding
 import com.deepshikhayadav.geetacollege.local_db.MyDatabase
 import com.deepshikhayadav.geetacollege.local_db.entity.BLog
 import com.deepshikhayadav.geetacollege.retrofit.RetrofitBuilder
 import com.deepshikhayadav.geetacollege.retrofit.remote.BlogRepositoryimpl
+import com.deepshikhayadav.geetacollege.ui.yoga.YogaFragmentDirections
 import com.deepshikhayadav.geetacollege.util.MainViewModelFactory
 import com.deepshikhayadav.geetacollege.util.NetworkHelper
 import kotlinx.android.synthetic.main.fragment_blogs.*
@@ -76,23 +78,43 @@ class BlogsFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.myResponse.observe(requireActivity(), Observer {
-            showBlog(it.data)
+        val adapter = BlogAdapter {
+            val action =
+                BlogsFragmentDirections.actionNavigationBlogToBlogDetailsFragment(it)
+            this.findNavController().navigate(action)
+
+        }
+        recyclerView.visibility = View.VISIBLE
+        recyclerView.setHasFixedSize(true)
+        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.adapter =  adapter
+
+        viewModel.myResponse.observe(requireActivity(), Observer { items->
+            items.let {
+                Log.i("data","${it.data[0]} ")
+                adapter.submitList(it.data)
+            }
             hideProgress()
         })
 
+
+       /* viewModel.myResponse.observe(requireActivity(), Observer {
+            showBlog(it.data)
+            hideProgress()
+        })
+*/
         viewModel.errorResponse.observe(requireActivity(), Observer {
             showErrorMessage(it)
             hideProgress()
         })
     }
 
-    private fun showBlog(movies: List<BLog>) {
+  /*  private fun showBlog(movies: List<BLog>) {
         recyclerView.visibility = View.VISIBLE
         recyclerView.setHasFixedSize(true)
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.adapter = BlogAdapter(movies)
-    }
+    }*/
 
     private fun showErrorMessage(errorMessage: String?) {
         errorView.visibility = View.VISIBLE

@@ -57,7 +57,7 @@
     <fragment
         android:id="@+id/yogaDetailsFragment"
         android:name="com.deepshikhayadav.geetacollege.ui.yoga.YogaDetailsFragment"
-        android:label="fragment_yoga_details"
+        android:label="Yoga details"
         tools:layout="@layout/fragment_yoga_details" >
         <argument
             android:name="yoga"
@@ -67,7 +67,7 @@
     <fragment
         android:id="@+id/blogDetailsFragment"
         android:name="com.deepshikhayadav.geetacollege.ui.blogs.BlogDetailsFragment"
-        android:label="fragment_blog_details"
+        android:label="Blog Details"
         tools:layout="@layout/fragment_blog_details" >
         <argument
             android:name="blog"
