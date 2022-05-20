@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/blogImage"
+            android:id="@+id/imageYoga"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
             tools:src="@tools:sample/backgrounds/scenic[10]"/>
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/blogTitle"
+            android:id="@+id/yogaTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -38,22 +38,22 @@
             android:maxLines="1"
             android:ellipsize="end"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/blogImage"
+            app:layout_constraintTop_toBottomOf="@+id/imageYoga"
             tools:text="Avengers Infinity War" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/blogDesc"
+            android:id="@+id/yogaDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-            app:layout_constraintStart_toStartOf="@+id/blogTitle"
-            app:layout_constraintTop_toBottomOf="@+id/blogTitle"
+            app:layout_constraintStart_toStartOf="@+id/yogaTitle"
+            app:layout_constraintTop_toBottomOf="@+id/yogaTitle"
             tools:text="12th Dec 2020"
             android:maxEms="20"
             android:maxLines="3"
             android:ellipsize="end"/>
-
-       <!-- <com.google.android.material.textview.MaterialTextView
+<!--
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/avgVoting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,10 +64,10 @@
             android:drawablePadding="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/blogImage"
-            tools:text="9.2" />
+            app:layout_constraintTop_toBottomOf="@+id/image"
+            tools:text="9.2" />-->
 
-        <com.google.android.material.textview.MaterialTextView
+       <!-- <com.google.android.material.textview.MaterialTextView
             android:id="@+id/totalVotes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

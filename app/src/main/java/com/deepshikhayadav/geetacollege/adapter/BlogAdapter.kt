@@ -32,10 +32,10 @@ class BlogAdapter (private val blog: List<BLog>) :
         fun bind(blog: BLog) {
             Log.i("image", IMAGE_BASE_URL+blog.image)
             Glide.with(itemView.context).load(IMAGE_BASE_URL + blog.image)
-                .into(itemView.moviePoster)
-             itemView.movieTitle.text = blog.heading
-             itemView.releaseDate.text = blog.desc
-             itemView.avgVoting.text = blog.author
+                .into(itemView.blogImage)
+             itemView.blogTitle.text = blog.heading
+             itemView.blogDesc.text = blog.desc
+            // itemView.avgVoting.text = blog.author
 
         }
     }

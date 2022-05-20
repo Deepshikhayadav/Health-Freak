@@ -10,13 +10,14 @@ import com.deepshikhayadav.geetacollege.R
 import com.deepshikhayadav.geetacollege.local_db.entity.BLog
 import com.deepshikhayadav.geetacollege.local_db.entity.Yoga
 import kotlinx.android.synthetic.main.layout_blog.view.*
+import kotlinx.android.synthetic.main.listitem_yoga.view.*
 
 class YogaAdapter (private val yoga: List<Yoga>) :
     RecyclerView.Adapter<YogaAdapter.YogaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): YogaViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.layout_blog, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.listitem_yoga, parent, false)
         return YogaViewHolder(view)
     }
 
@@ -33,9 +34,9 @@ class YogaAdapter (private val yoga: List<Yoga>) :
         fun bind(yoga: Yoga) {
             Log.i("image", IMAGE_BASE_URL+yoga.image)
             Glide.with(itemView.context).load(IMAGE_BASE_URL + yoga.image)
-                .into(itemView.moviePoster)
-            itemView.movieTitle.text = yoga.heading
-            itemView.releaseDate.text = yoga.desc
+                .into(itemView.imageYoga)
+            itemView.yogaTitle.text = yoga.heading
+            itemView.yogaDesc.text = yoga.desc
            // itemView.avgVoting.text = yoga.author
 
         }
