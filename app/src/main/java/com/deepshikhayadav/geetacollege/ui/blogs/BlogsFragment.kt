@@ -23,7 +23,7 @@ import com.deepshikhayadav.geetacollege.retrofit.remote.BlogRepositoryimpl
 import com.deepshikhayadav.geetacollege.ui.yoga.YogaFragmentDirections
 import com.deepshikhayadav.geetacollege.util.MainViewModelFactory
 import com.deepshikhayadav.geetacollege.util.NetworkHelper
-import kotlinx.android.synthetic.main.fragment_blogs.*
+
 
 class BlogsFragment : Fragment() {
 
@@ -51,8 +51,7 @@ class BlogsFragment : Fragment() {
         recyclerView = binding.blogRecycler
         progressBar = binding.progressBar
 
-        setupViewModel()
-        observeViewModel()
+
         binding.fabAdd.setOnClickListener {
             val action = BlogsFragmentDirections.actionNavigationBlogToBlogAddFragment(/*getString(R.string.add)*/)
             this.findNavController().navigate(action)
@@ -109,7 +108,13 @@ class BlogsFragment : Fragment() {
         })
     }
 
-  /*  private fun showBlog(movies: List<BLog>) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupViewModel()
+        observeViewModel()
+    }
+
+    /*  private fun showBlog(movies: List<BLog>) {
         recyclerView.visibility = View.VISIBLE
         recyclerView.setHasFixedSize(true)
         recyclerView.itemAnimator = DefaultItemAnimator()
@@ -117,8 +122,8 @@ class BlogsFragment : Fragment() {
     }*/
 
     private fun showErrorMessage(errorMessage: String?) {
-        errorView.visibility = View.VISIBLE
-        errorView.text = errorMessage
+      /*  errorView.visibility = View.VISIBLE
+        errorView.text = errorMessage*/
     }
 
     private fun hideProgress() {

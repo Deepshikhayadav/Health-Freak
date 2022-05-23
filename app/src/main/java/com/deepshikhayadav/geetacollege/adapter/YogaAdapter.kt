@@ -13,8 +13,7 @@ import com.deepshikhayadav.geetacollege.databinding.ListitemYogaBinding
 import com.deepshikhayadav.geetacollege.databinding.YogaFragmentBinding
 import com.deepshikhayadav.geetacollege.local_db.entity.BLog
 import com.deepshikhayadav.geetacollege.local_db.entity.Yoga
-import kotlinx.android.synthetic.main.layout_blog.view.*
-import kotlinx.android.synthetic.main.listitem_yoga.view.*
+
 
 class YogaAdapter (/*private val yoga: List<Yoga>,*/private val onItemClicked: (Yoga) -> Unit)
   /* : RecyclerView.Adapter<YogaAdapter.YogaViewHolder>() {

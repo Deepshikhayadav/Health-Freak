@@ -29,7 +29,7 @@ import com.deepshikhayadav.geetacollege.ui.pedometer.PedometerViewModel
 import com.deepshikhayadav.geetacollege.util.MainViewModelFactory
 import com.deepshikhayadav.geetacollege.util.MainViewModelFactory2
 import com.deepshikhayadav.geetacollege.util.NetworkHelper
-import kotlinx.android.synthetic.main.fragment_blogs.*
+
 
 class YogaFragment : Fragment() {
     private var _binding: YogaFragmentBinding? = null
@@ -55,8 +55,7 @@ class YogaFragment : Fragment() {
         recyclerView = binding.yogaRecycler
         progressBar = binding.progressBar
 
-        setupViewModel()
-        observeViewModel()
+
         return root
     }
     private fun setupViewModel() {
@@ -104,8 +103,8 @@ class YogaFragment : Fragment() {
 
 
     private fun showErrorMessage(errorMessage: String?) {
-        errorView.visibility = View.VISIBLE
-        errorView.text = errorMessage
+        /*errorView.visibility = View.VISIBLE
+        errorView.text = errorMessage*/
     }
 
     private fun hideProgress() {
@@ -116,13 +115,13 @@ class YogaFragment : Fragment() {
         progressBar.visibility = View.VISIBLE
     }
 
-   /* override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(YogaViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupViewModel()
+        observeViewModel()
     }
-*/
-   override fun onDestroyView() {
+
+    override fun onDestroyView() {
        super.onDestroyView()
        _binding = null
    }

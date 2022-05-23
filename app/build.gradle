@@ -4,7 +4,7 @@ plugins {
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
-    id 'kotlin-android-extensions'
+    //id 'kotlin-android-extensions'
     id 'androidx.navigation.safeargs.kotlin'
 }
 
@@ -38,7 +38,11 @@ android {
         viewBinding true
     }
 }
-
+/*allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}*/
 dependencies {
     ext.hilt_version = '2.40'
 
@@ -83,4 +87,13 @@ dependencies {
 
     //circular progressbar
     implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
+
+    /*implementation 'com.github.patgdut:RadioRealButton:v2.1.2'*/
+    implementation 'me.itangqi.waveloadingview:library:0.3.5'
+   /* implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'*/
+    implementation 'com.params.progressview:step-progress:1.0.2'
+   /* implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:2.1.2'*/
 }

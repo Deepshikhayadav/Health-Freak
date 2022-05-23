@@ -15,7 +15,6 @@ import com.deepshikhayadav.geetacollege.databinding.FragmentPedometerBinding
 import com.deepshikhayadav.geetacollege.ui.pedometer.listener.StepListener
 import com.deepshikhayadav.geetacollege.ui.pedometer.utils.StepDetector
 import com.mikhaellopez.circularprogressbar.CircularProgressBar
-import kotlinx.android.synthetic.main.fragment_pedometer.*
 
 class PedometerFragment : Fragment(), SensorEventListener, StepListener {
     private var _binding: FragmentPedometerBinding? = null

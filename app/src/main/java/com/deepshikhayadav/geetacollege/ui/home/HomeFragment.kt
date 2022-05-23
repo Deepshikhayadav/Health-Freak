@@ -30,8 +30,8 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        addGlass = binding.addGlass
-        minusGlass = binding.minusGlass
+     /*   addGlass = binding.addGlass
+        minusGlass = binding.minusGlass*/
 
 
         return root

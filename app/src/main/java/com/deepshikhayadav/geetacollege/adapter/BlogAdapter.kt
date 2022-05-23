@@ -12,8 +12,7 @@ import com.deepshikhayadav.geetacollege.R
 import com.deepshikhayadav.geetacollege.databinding.LayoutBlogBinding
 import com.deepshikhayadav.geetacollege.databinding.ListitemYogaBinding
 import com.deepshikhayadav.geetacollege.local_db.entity.BLog
-import com.deepshikhayadav.geetacollege.local_db.entity.Yoga
-import kotlinx.android.synthetic.main.layout_blog.view.*
+
 
 class BlogAdapter (/*private val blog: List<BLog>*/ private val onItemClicked: (BLog) -> Unit)
   /*  :  RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {

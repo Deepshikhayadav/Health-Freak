@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/waterDetailFragment">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -74,4 +74,9 @@
             app:argType="com.deepshikhayadav.geetacollege.local_db.entity.BLog"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/waterDetailFragment"
+        android:name="com.deepshikhayadav.geetacollege.ui.home.WaterDetailFragment"
+        android:label="fragment_water_detail"
+        tools:layout="@layout/fragment_water_detail" />
 </navigation>
