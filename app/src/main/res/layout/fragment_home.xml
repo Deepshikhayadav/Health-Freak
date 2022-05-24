@@ -200,7 +200,7 @@
         android:layout_marginBottom="8dp"
         android:padding="8dp"
         android:contentDescription="@string/details"
-        android:src="@android:drawable/ic_menu_info_details"
+        android:src="@android:drawable/ic_media_next"
         app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -223,7 +223,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-    <com.google.android.material.textview.MaterialTextView
+   <!-- <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -232,23 +232,23 @@
         android:text="Daily Drink Target"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="140dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_max="300dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intakeProgress">
+        app:layout_constraintTop_toBottomOf="@+id/waterLevelView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -469,30 +469,31 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <params.com.stepprogressview.StepProgressView
-        android:id="@+id/intakeProgress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:maxWidth="5dp"
-        app:currentProgress="60"
-        app:layout_constraintEnd_toEndOf="parent"
+    <me.itangqi.waveloadingview.WaveLoadingView
+        android:id="@+id/waterLevelView"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        app:wlv_borderColor="@color/sec_400"
+        app:wlv_borderWidth="8dp"
+        app:wlv_progressValue="40"
+        app:wlv_shapeType="circle"
+        app:wlv_round_rectangle="true"
+        app:wlv_triangle_direction="north"
+        app:wlv_titleCenterStrokeColor="@android:color/holo_blue_dark"
+        app:wlv_titleCenterStrokeWidth="3dp"
+        app:wlv_titleCenter="40%"
+        app:wlv_titleCenterColor="@color/primary_text"
+        app:wlv_titleCenterSize="45sp"
+        app:wlv_waveAmplitude="60"
+        app:wlv_waveColor="@color/sec_color"
+        android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvIntook"
-        app:markerColor="@color/primary_color"
-        app:markers="100"
-        app:progressBackgroundColor="@color/browser_actions_bg_grey"
-        app:progressBarHeight="10dp"
-        app:progressColor="@color/accent_color"
-        app:textColor="@color/primary_text"
-        app:textMargin="5dp"
-        app:textSize="15sp"
-        app:totalProgress="130" />
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.google.android.material.textview.MaterialTextView
+   <!-- <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvIntook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -514,5 +515,5 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/tvIntook"
         app:layout_constraintStart_toEndOf="@+id/tvIntook" />
-
+-->
 </androidx.constraintlayout.widget.ConstraintLayout>

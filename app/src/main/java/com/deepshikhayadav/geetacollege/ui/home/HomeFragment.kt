@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.deepshikhayadav.geetacollege.databinding.FragmentHomeBinding
+import me.itangqi.waveloadingview.WaveLoadingView
 
 class HomeFragment : Fragment() {
 
@@ -17,7 +18,7 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    lateinit var addGlass: ImageView
+    lateinit var waterLevelView: WaveLoadingView
     lateinit var minusGlass :ImageView
 
     override fun onCreateView(
@@ -30,9 +31,6 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-     /*   addGlass = binding.addGlass
-        minusGlass = binding.minusGlass*/
-
 
         return root
     }
