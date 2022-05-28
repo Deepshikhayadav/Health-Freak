@@ -23,5 +23,8 @@
             <item name="android:layout_height">match_parent</item>
             <item name="android:background">@color/white</item>
         </style>
-
+        <style name="Theme.GeetaCollege.NoActionBar">
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
+        </style>
     </resources>
