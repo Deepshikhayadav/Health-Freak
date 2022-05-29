@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.deepshikhayadav.geetacollege.MainActivity
@@ -24,6 +25,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import me.itangqi.waveloadingview.WaveLoadingView
+import okhttp3.internal.Util
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class HomeFragment : Fragment() {
 
@@ -38,6 +42,9 @@ class HomeFragment : Fragment() {
     var myDailyIntake = 0
     lateinit var fabAdd: FloatingActionButton
     private var snackbar: Snackbar? = null
+    lateinit var editor: SharedPreferences.Editor
+    var totalIn: Int = 0
+    lateinit var cons : ConstraintLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,8 +57,30 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         waterLevelView = binding.waterLevelView
+
         sharedPref =
             requireActivity().getSharedPreferences(Utils.USERS_SHARED_PREF, Utils.PRIVATE_MODE)
+        editor = sharedPref.edit()
+
+        if(Utils.getCurrentDate() != sharedPref.getString(Utils.CURRENT_DAY,Utils.getCurrentDate())){
+            myDailyIntake = 0
+            Log.i("deepu",sharedPref.getString(Utils.CURRENT_DAY,Utils.getCurrentDate())!!)
+
+            val df = DecimalFormat("#")
+            df.roundingMode = RoundingMode.CEILING
+            editor.putInt(Utils.DAILY_INTAKE, df.format(myDailyIntake).toInt())
+            editor.putString(Utils.CURRENT_DAY, Utils.getCurrentDate()!!.toString())
+            editor.apply()
+        }
+        else{
+            myDailyIntake = sharedPref.getInt(
+                Utils.DAILY_INTAKE,
+                0
+            )
+            Log.i("deepu",myDailyIntake.toString()+" "+sharedPref.getString(Utils.CURRENT_DAY,Utils.getCurrentDate())!!)
+        }
+
+        setData()
 
         binding.btnStats.setOnClickListener {
             AuthUI.getInstance().signOut(requireActivity()).addOnSuccessListener {
@@ -60,6 +89,7 @@ class HomeFragment : Fragment() {
             }
         }
         fabAdd = binding.fabAdd
+        cons = binding.parentCon
 
         initView()
 
@@ -67,10 +97,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initView() {
-        val totalIn = sharedPref.getInt(
-            Utils.TOTAL_INTAKE,
-            0
-        )
+
         val weight = sharedPref.getInt(
             Utils.WEIGHT_KEY,
             0
@@ -87,7 +114,6 @@ class HomeFragment : Fragment() {
             Utils.SLEEPING_TIME_KEY,
             0
         )
-
 
         binding.tvTotalIntake.text= "/$totalIn ml"
        // binding.tvIntook.text = myDailyIntake.toString()
@@ -195,20 +221,48 @@ class HomeFragment : Fragment() {
 
         }
         fabAdd.setOnClickListener {
-            val p = ((myDailyIntake * 100) / totalIn)
-            Log.i("deepu", "$p $myDailyIntake $totalIn")
-            waterLevelView.progressValue = p
-            waterLevelView.centerTitle = "$p%"
+            setData()
+            if(myDailyIntake>=totalIn){
+                /*Snackbar.make(cons, "You achieved the goal", Snackbar.LENGTH_SHORT)
+                    .show()*/
+                Toast.makeText(activity,"You achieved the goal..", Toast.LENGTH_LONG).show()
 
-            binding.tvIntook.text = "${myDailyIntake}"
+            }
+            else{
+                /*  Snackbar.make(cons, "Your water intake was saved...!!", Snackbar.LENGTH_SHORT)
+                      .show()*/
+                Toast.makeText(activity,"Your water intake was saved...!!", Toast.LENGTH_LONG).show()
+                val df = DecimalFormat("#")
+                df.roundingMode = RoundingMode.CEILING
+                editor.putInt(Utils.DAILY_INTAKE, df.format(myDailyIntake).toInt())
+                editor.apply()
+                binding.op50ml.background = requireActivity().getDrawable(outValue.resourceId)
+                binding.op100ml.background = requireActivity().getDrawable(outValue.resourceId)
+                binding.op150ml.background = requireActivity().getDrawable(outValue.resourceId)
+                binding.op200ml.background = requireActivity().getDrawable(outValue.resourceId)
+                binding.op250ml.background = requireActivity().getDrawable(outValue.resourceId)
+                binding.opCustom.background = requireActivity().getDrawable(outValue.resourceId)
+            }
 
-            binding.op50ml.background = requireActivity().getDrawable(outValue.resourceId)
-            binding.op100ml.background = requireActivity().getDrawable(outValue.resourceId)
-            binding.op150ml.background = requireActivity().getDrawable(outValue.resourceId)
-            binding.op200ml.background = requireActivity().getDrawable(outValue.resourceId)
-            binding.op250ml.background = requireActivity().getDrawable(outValue.resourceId)
-            binding.opCustom.background = requireActivity().getDrawable(outValue.resourceId)
         }
+
+    }
+
+    private fun setData() {
+        totalIn = sharedPref.getInt(
+            Utils.TOTAL_INTAKE,
+            0
+        )
+
+
+        val p = ((myDailyIntake * 100) / totalIn)
+        Log.i("deepu", "$p $myDailyIntake $totalIn")
+        waterLevelView.progressValue = p
+        waterLevelView.centerTitle = "$p%"
+
+        binding.tvIntook.text = "$myDailyIntake"
+
+
 
     }
 

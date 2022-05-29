@@ -124,6 +124,7 @@ class Utils {
       val WEIGHT_KEY = "weight"
       val WORK_TIME_KEY = "worktime"
       val TOTAL_INTAKE = "totalintake"
+      val DAILY_INTAKE = "dailyintake"
       val NOTIFICATION_STATUS_KEY = "notificationstatus"
       val NOTIFICATION_FREQUENCY_KEY = "notificationfrequency"
       val NOTIFICATION_MSG_KEY = "notificationmsg"
@@ -131,6 +132,6 @@ class Utils {
       val WAKEUP_TIME = "wakeuptime"
       val NOTIFICATION_TONE_URI_KEY = "notificationtone"
       val FIRST_RUN_KEY = "firstrun"
-
+      val CURRENT_DAY ="01-05-2022"
   }
 }
