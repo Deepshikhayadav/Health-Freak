@@ -223,16 +223,6 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-   <!-- <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="Daily Drink Target"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -471,17 +461,18 @@
 
     <me.itangqi.waveloadingview.WaveLoadingView
         android:id="@+id/waterLevelView"
-        android:layout_width="250dp"
+        android:layout_width="220dp"
         android:layout_height="0dp"
         app:wlv_borderColor="@color/sec_400"
         app:wlv_borderWidth="8dp"
-        app:wlv_progressValue="40"
+        android:layout_marginTop="15dp"
+        app:wlv_progressValue="0"
         app:wlv_shapeType="circle"
         app:wlv_round_rectangle="true"
         app:wlv_triangle_direction="north"
         app:wlv_titleCenterStrokeColor="@android:color/holo_blue_dark"
         app:wlv_titleCenterStrokeWidth="3dp"
-        app:wlv_titleCenter="40%"
+        app:wlv_titleCenter="0%"
         app:wlv_titleCenterColor="@color/primary_text"
         app:wlv_titleCenterSize="45sp"
         app:wlv_waveAmplitude="60"
@@ -491,29 +482,42 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="24dp"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/linear"/>
 
-   <!-- <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvIntook"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="2000"
-        android:textSize="35sp"
-        android:textStyle="bold"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvTotalIntake"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="4dp"
-        android:text="/3500 ml"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvIntook"
-        app:layout_constraintStart_toEndOf="@+id/tvIntook" />
--->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Daily Drink Target - "
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvIntook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="0"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTotalIntake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="/0 ml"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,4 +27,19 @@
             <item name="windowActionBar">false</item>
             <item name="windowNoTitle">true</item>
         </style>
+
+        <style name="TextInputLayoutAppearance" parent="Widget.Design.TextInputLayout">
+            <!-- reference our hint & error styles -->
+            <item name="hintTextAppearance">@style/HintText</item>
+            <item name="errorTextAppearance">@style/ErrorText</item>
+            <item name="android:background">@color/white</item>
+        </style>
+        <style name="HintText" parent="Theme.GeetaCollege">
+            <item name="android:textColor">@android:color/white</item>
+            <item name="android:textSize">14sp</item>
+        </style>
+        <style name="ErrorText" parent="Theme.GeetaCollege">
+        <item name="android:textColor">@color/fui_errorColor</item>
+        <item name="android:textSize">16sp</item>
+        </style>
     </resources>

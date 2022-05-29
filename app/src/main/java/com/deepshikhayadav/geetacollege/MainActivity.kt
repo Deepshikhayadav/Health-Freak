@@ -1,12 +1,14 @@
 package com.deepshikhayadav.geetacollege
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.deepshikhayadav.geetacollege.databinding.ActivityHomeBinding
 import com.deepshikhayadav.geetacollege.databinding.ActivityMainBinding
+import com.deepshikhayadav.geetacollege.util.Utils
 import com.firebase.ui.auth.util.signincontainer.IdpSignInContainer.signIn
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -26,12 +28,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var mGoogleSignInClient : GoogleSignInClient
     private val RC_SIGN_IN=123
+    private lateinit var sharedPref: SharedPreferences
     private val TAG: String = MainActivity::class.java.simpleName
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        sharedPref = getSharedPreferences(Utils.USERS_SHARED_PREF, Utils.PRIVATE_MODE)
 
         val gso = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -74,6 +77,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
@@ -81,25 +85,33 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d("TAG", "signInWithCredential:success")
                     val user = auth.currentUser
-                    startActivity(Intent(applicationContext,HomeActivity::class.java))
-                    finish()
-                   /* documentRef=db.collection("users")
-                        .document(user!!.uid)
-                    val hashMap = hashMapOf(
-                        "Email" to auth.currentUser!!.email,
-                    )
-                    documentRef.get().addOnSuccessListener {
-                        if(it.getString("admin")!=null){
-                            Toast.makeText(applicationContext,"You are admin",Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(applicationContext,AdminLogin::class.java))
-                            finish()
-                        }
-                        else{
-                            documentRef.set(hashMap)
-                            startActivity(Intent(applicationContext,Dashboard::class.java))
-                            finish()
-                        }
-                    }*/
+
+                    if (sharedPref.getBoolean(Utils.FIRST_RUN_KEY, true)) {
+                        startActivity(Intent(applicationContext,EnterDataActivity::class.java))
+                        finish()
+                    } else/* if (totalIntake <= 0) */{
+                        startActivity(Intent(this,HomeActivity::class.java))
+                        finish()
+                    }
+
+
+                    /* documentRef=db.collection("users")
+                         .document(user!!.uid)
+                     val hashMap = hashMapOf(
+                         "Email" to auth.currentUser!!.email,
+                     )
+                     documentRef.get().addOnSuccessListener {
+                         if(it.getString("admin")!=null){
+                             Toast.makeText(applicationContext,"You are admin",Toast.LENGTH_SHORT).show()
+                             startActivity(Intent(applicationContext,AdminLogin::class.java))
+                             finish()
+                         }
+                         else{
+                             documentRef.set(hashMap)
+                             startActivity(Intent(applicationContext,Dashboard::class.java))
+                             finish()
+                         }
+                     }*/
 
 
                 } else {
@@ -112,8 +124,15 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if(currentUser!=null){
-            startActivity(Intent(applicationContext,HomeActivity::class.java))
-            finish()
+
+            if (sharedPref.getBoolean(Utils.FIRST_RUN_KEY, true)) {
+                startActivity(Intent(applicationContext,EnterDataActivity::class.java))
+                finish()
+            } else/* if (totalIntake <= 0) */{
+                startActivity(Intent(this,HomeActivity::class.java))
+                finish()
+            }
+
 
         }
 
