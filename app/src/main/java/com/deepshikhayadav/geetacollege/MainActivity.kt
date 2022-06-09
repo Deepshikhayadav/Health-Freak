@@ -95,25 +95,6 @@ class MainActivity : AppCompatActivity() {
                     }
 
 
-                    /* documentRef=db.collection("users")
-                         .document(user!!.uid)
-                     val hashMap = hashMapOf(
-                         "Email" to auth.currentUser!!.email,
-                     )
-                     documentRef.get().addOnSuccessListener {
-                         if(it.getString("admin")!=null){
-                             Toast.makeText(applicationContext,"You are admin",Toast.LENGTH_SHORT).show()
-                             startActivity(Intent(applicationContext,AdminLogin::class.java))
-                             finish()
-                         }
-                         else{
-                             documentRef.set(hashMap)
-                             startActivity(Intent(applicationContext,Dashboard::class.java))
-                             finish()
-                         }
-                     }*/
-
-
                 } else {
                     Log.w("TAG", "signInWithCredential:failure", task.exception)
                     Toast.makeText(applicationContext,"OOPs something went wrong!!",Toast.LENGTH_SHORT).show()

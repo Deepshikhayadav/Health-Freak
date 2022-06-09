@@ -14,7 +14,7 @@
         <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/layout/fragment_blog_add.xml" value="0.2" />
         <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/layout/fragment_blog_details.xml" value="0.152" />
         <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/layout/fragment_blogs.xml" value="0.176" />
-        <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/layout/fragment_pedometer.xml" value="0.1" />
         <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/layout/fragment_water_detail.xml" value="0.10400000000000001" />
         <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/layout/fragment_yoga_details.xml" value="0.2" />
@@ -22,6 +22,7 @@
         <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/layout/listitem_yoga.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/layout/yoga_fragment.xml" value="0.1" />
         <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/menu/bottom_nav_menu.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/Deepshikha/AndroidStudioProjects/GeetaCollege/app/src/main/res/menu/menu.xml" value="0.15520833333333334" />
       </map>
     </option>
   </component>

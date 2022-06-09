@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GeetaCollege</string>
+    <string name="app_name">Health freak</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -13,4 +13,15 @@
     <string name="fab">fab</string>
     <string name="add">Add Blog</string>
     <string name="details">details</string>
+    <string name="drink_water">Let\'s drink some water</string>
+    <string name="log_out">Log out</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

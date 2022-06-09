@@ -14,11 +14,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.getDrawable
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.deepshikhayadav.geetacollege.MainActivity
 import com.deepshikhayadav.geetacollege.R
 import com.deepshikhayadav.geetacollege.databinding.FragmentHomeBinding
+import com.deepshikhayadav.geetacollege.helper.AlarmHelper
 import com.deepshikhayadav.geetacollege.util.Utils
 import com.firebase.ui.auth.AuthUI
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -92,6 +94,14 @@ class HomeFragment : Fragment() {
         cons = binding.parentCon
 
         initView()
+       /* val alarm = AlarmHelper()
+        if (!alarm.checkAlarm(requireContext()) && *//*notificStatus*//* true) {
+            // btnNotific.setImageDrawable(getDrawable(R.drawable.ic_bell))
+            alarm.setAlarm(
+                requireContext(),
+                sharedPref.getInt(Utils.NOTIFICATION_FREQUENCY_KEY, 30).toLong()
+            )
+        }*/
 
         return root
     }
@@ -261,7 +271,6 @@ class HomeFragment : Fragment() {
         waterLevelView.centerTitle = "$p%"
 
         binding.tvIntook.text = "$myDailyIntake"
-
 
 
     }
