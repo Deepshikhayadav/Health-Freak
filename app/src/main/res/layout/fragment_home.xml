@@ -492,7 +492,6 @@
         android:padding="20dp"
         android:layout_margin="5dp"
         app:cardCornerRadius="5dp"
-        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
