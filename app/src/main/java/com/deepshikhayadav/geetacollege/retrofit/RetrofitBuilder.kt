@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
-    private const val BASE_URL = "https://deepu-api-health-freak.herokuapp.com/"
+    private const val BASE_URL = "YOUR_BASE_URL"
     private val client = OkHttpClient.Builder().build()
 
     private val gson: Gson = GsonBuilder()
