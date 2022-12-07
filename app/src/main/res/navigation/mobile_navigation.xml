@@ -15,16 +15,68 @@
         android:id="@+id/navigation_yoga"
         android:name="com.deepshikhayadav.geetacollege.ui.yoga.YogaFragment"
         android:label="@string/yoga"
-        tools:layout="@layout/fragment_pedometer" />
+        tools:layout="@layout/yoga_fragment" >
+
+        <action
+            android:id="@+id/action_navigation_yoga_to_yogaDetailsFragment2"
+            app:destination="@id/yogaDetailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_blog"
         android:name="com.deepshikhayadav.geetacollege.ui.blogs.BlogsFragment"
         android:label="@string/blog"
-        tools:layout="@layout/fragment_blogs" />
+        tools:layout="@layout/fragment_blogs" >
+        <action
+            android:id="@+id/action_navigation_blog_to_blogAddFragment"
+            app:destination="@id/blogAddFragment" />
+        <action
+            android:id="@+id/action_navigation_blog_to_blogDetailsFragment"
+            app:destination="@id/blogDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_pedometer"
         android:name="com.deepshikhayadav.geetacollege.ui.pedometer.PedometerFragment"
         android:label="@string/pedo"
         tools:layout="@layout/fragment_pedometer" />
+    <fragment
+        android:id="@+id/blogAddFragment"
+        android:name="com.deepshikhayadav.geetacollege.ui.blogs.BlogAddFragment"
+        android:label="Add Blog"
+        tools:layout="@layout/fragment_blog_add" >
+        <!--<argument
+            android:name="title"
+            app:argType="string" />-->
+      <!--  <argument
+            android:name="item_id"
+            app:argType="integer" />-->
+        <action
+            android:id="@+id/action_blogAddFragment_to_navigation_blog"
+            app:destination="@id/navigation_blog" />
+    </fragment>
+    <fragment
+        android:id="@+id/yogaDetailsFragment"
+        android:name="com.deepshikhayadav.geetacollege.ui.yoga.YogaDetailsFragment"
+        android:label="Yoga details"
+        tools:layout="@layout/fragment_yoga_details" >
+        <argument
+            android:name="yoga"
+            app:argType="com.deepshikhayadav.geetacollege.local_db.entity.Yoga"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/blogDetailsFragment"
+        android:name="com.deepshikhayadav.geetacollege.ui.blogs.BlogDetailsFragment"
+        android:label="Blog Details"
+        tools:layout="@layout/fragment_blog_details" >
+        <argument
+            android:name="blog"
+            app:argType="com.deepshikhayadav.geetacollege.local_db.entity.BLog"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/waterDetailFragment"
+        android:name="com.deepshikhayadav.geetacollege.ui.home.WaterDetailFragment"
+        android:label="fragment_water_detail"
+        tools:layout="@layout/fragment_water_detail" />
 </navigation>

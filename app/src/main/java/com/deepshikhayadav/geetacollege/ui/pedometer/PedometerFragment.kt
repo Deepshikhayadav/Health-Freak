@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.deepshikhayadav.geetacollege.databinding.FragmentPedometerBinding
 import com.deepshikhayadav.geetacollege.ui.pedometer.listener.StepListener
 import com.deepshikhayadav.geetacollege.ui.pedometer.utils.StepDetector
+import com.mikhaellopez.circularprogressbar.CircularProgressBar
 
 class PedometerFragment : Fragment(), SensorEventListener, StepListener {
     private var _binding: FragmentPedometerBinding? = null
@@ -24,8 +25,9 @@ class PedometerFragment : Fragment(), SensorEventListener, StepListener {
 
     private var simpleStepDetector: StepDetector? = null
     private var sensorManager: SensorManager? = null
-    private val TEXT_NUM_STEPS = "Number of Steps: "
+    private val TEXT_NUM_STEPS = " "
     private var numSteps: Int = 0
+    lateinit var progressCircular : CircularProgressBar
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
     }
@@ -39,11 +41,8 @@ class PedometerFragment : Fragment(), SensorEventListener, StepListener {
     override fun step(timeNs: Long) {
         numSteps++
         binding.tvSteps.text = TEXT_NUM_STEPS.plus(numSteps)
+        progressCircular.apply { setProgressWithAnimation(numSteps.toFloat()) }
     }
-
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,12 +54,7 @@ class PedometerFragment : Fragment(), SensorEventListener, StepListener {
 
         _binding = FragmentPedometerBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-       /* val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }*/
-
+        progressCircular = binding.circularProgressBar
 
         sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
          //   getSystemService(Context.SENSOR_SERVICE) as SensorManager
@@ -74,6 +68,7 @@ class PedometerFragment : Fragment(), SensorEventListener, StepListener {
 
         binding.btnStop.setOnClickListener {
             sensorManager!!.unregisterListener(this)
+            binding.tvSteps.text= "0"
         }
 
         return root
