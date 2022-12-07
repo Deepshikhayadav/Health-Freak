@@ -25,10 +25,11 @@
             android:id="@+id/yogaTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            app:layout_constraintHorizontal_bias="0"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageYoga"
             tools:text="Avengers Infinity War" />
@@ -37,7 +38,9 @@
             android:id="@+id/yogaDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="0"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/yogaTitle"
             app:layout_constraintTop_toBottomOf="@+id/yogaTitle"
             tools:text="12th Dec 2020" />
